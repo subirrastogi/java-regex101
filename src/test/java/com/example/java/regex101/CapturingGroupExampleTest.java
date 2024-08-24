@@ -24,13 +24,25 @@ public class CapturingGroupExampleTest {
                 {5:}
                 <<_F_<<
                 >>_D_>>yeys 103 dJPY
-                {1:}{2:}
-                {5:}
+                {6:}{7:}
+                {8:}
                 <<_F_<<
                 """;
 
         List<String> results = example.run(sample1);
-        //assertThat(results).hasSize(2);
+
+        String firstResult = """
+                {1:}{2:}
+                {5:}
+                """;
+
+        String secondResult = """
+                {6:}{7:}
+                {8:}
+                """;
+        assertThat(results).hasSize(2);
+        assertThat(results)
+                .containsExactly(firstResult, secondResult);
     }
 
     @Test
